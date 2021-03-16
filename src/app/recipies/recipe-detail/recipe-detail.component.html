@@ -1,0 +1,33 @@
+<div *ngIf = "recipeDetail.name.length>1; else nothing">
+    <div>
+        <h2>{{recipeDetail.name}}</h2>
+        <div class="row">
+            <p>Description: {{ recipeDetail.description }}</p>
+        </div>
+        <div class="row">
+            <ul>
+                <li class="list-group-item"
+                *ngFor = "let ingredient of recipeDetail.ingredients">
+                    {{ ingredient.name }} - {{ ingredient.amount }}
+                </li>
+            </ul>
+        </div>
+        <img [src] = "recipeDetail.imagePath" style="max-height: 100px;">
+    </div>
+
+    <div openDropdown>
+        <button type= "button" class="btn btn-primary dropdown-toggle">Manage Recipe
+        </button>
+        <ul class="dropdown-menu" >
+            <li (click) = "goToShopping()" class="dropdown-item"><a href="#">To shopping list</a></li>
+            <li class="dropdown-item" ><a href="#">Edit recipe</a></li>
+            <li class="dropdown-item"><a href="#">Delete recipe</a></li>
+        </ul>
+    </div>
+
+</div>
+
+<ng-template #nothing>
+    <h3>Selecione uma receita ao lado</h3>
+</ng-template>
+
