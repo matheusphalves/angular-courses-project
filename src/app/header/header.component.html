@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand mx-3">
     <div class= "container-fluid">
         <div class="navbar-header">
-            <a href="#" class="navbar-brand">Recipe Book</a>
+            <a routerLink = '/' class="navbar-brand">Recipe Book</a>
         </div>
 
         <!-- Toggler/collapsibe Button -->
@@ -11,20 +11,20 @@
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a (click) = "clicado('recipes')" class="nav-link" href="#">Recipes</a></li>
-                <li class="nav-item">
-                    <a (click) = "clicado('shopping')" class="nav-link" href="#">Shopping List</a></li>
+                <li routerLinkActive = "active" class="nav-item">
+                    <a   routerLink = '/recipes' class="nav-link" >Recipes</a></li>
+                <li routerLinkActive = "active" class="nav-item">
+                    <a  routerLink = '/shopping-list'class="nav-link">Shopping List</a></li>
             </ul>  
 
             <ul class="nav navbar-nav navbar-right" openDropdown>
                 <li class="dropdown" >
-                    <a href="#" class="dropdown-toggle" role="button">Manage
+                    <a class="dropdown-toggle" role="button">Manage
                         <span class="carret"> </span>
                     </a>
                         <ul class="dropdown-menu" >
-                            <li class="dropdown-item"><a href="#">Save Data</a></li>
-                            <li class="dropdown-item"><a href="#">Fetch Data</a></li>
+                            <li class="dropdown-item"><a>Save Data</a></li>
+                            <li class="dropdown-item"><a>Fetch Data</a></li>
                         </ul>
                     
                 </li>

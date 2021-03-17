@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -8,15 +8,8 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output() buttonEvent = new EventEmitter<string>()
-
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  clicado(evento:string){
-    this.buttonEvent.emit(evento)
-  }
-
 }
