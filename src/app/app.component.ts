@@ -6,20 +6,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  tipoServico:string = 'recipes'
 
-  constructor(){
-
-  }
+  constructor(){}
 
   ngOnInit(): void {    
-  }
-  
-
-
-
-  onChangePage(evento: string){
-    this.tipoServico = evento
   }
 
 }

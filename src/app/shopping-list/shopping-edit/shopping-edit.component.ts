@@ -1,6 +1,7 @@
 import { ShoppingListService } from './../shopping-list.service';
 import { Component, OnInit, EventEmitter, Output, ElementRef, ViewChild } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredients';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -10,6 +11,7 @@ import { Ingredient } from 'src/app/shared/ingredients';
 export class ShoppingEditComponent implements OnInit {
 
   @Output() addIngredient = new EventEmitter<Ingredient>()
+  //@Output() addIngredient = new Subject<Ingredient>
   @ViewChild("nameInput") nameIngredient: ElementRef;
   @ViewChild("amountInput") amountIngredient: ElementRef;
 

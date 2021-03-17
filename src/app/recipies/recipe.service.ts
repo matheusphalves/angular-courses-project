@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs';
 import { ShoppingListService } from './../shopping-list/shopping-list.service';
 import { Ingredient } from 'src/app/shared/ingredients';
 import { Injectable, EventEmitter } from '@angular/core';
@@ -8,7 +9,8 @@ import { Recipe } from './recipe.module';
 })
 export class RecipeService {
 
-  recipeSelected = new EventEmitter<Recipe>();
+  //recipeSelected = new EventEmitter<Recipe>();
+  //recipeSelected = new Subject<Recipe>();
   
   private recipes: Recipe[] = [
     new Recipe("Miojo", "É um miojo muito saboroso!", "https://www.cookingclassy.com/wp-content/uploads/2019/09/meatballs-21-600x900.jpg",
