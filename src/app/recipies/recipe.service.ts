@@ -11,7 +11,10 @@ export class RecipeService {
 
   //recipeSelected = new EventEmitter<Recipe>();
   //recipeSelected = new Subject<Recipe>();
-  
+
+  updateRecipes = new Subject<Recipe[]>();
+
+
   private recipes: Recipe[] = [
     new Recipe("Miojo", "É um miojo muito saboroso!", "https://www.cookingclassy.com/wp-content/uploads/2019/09/meatballs-21-600x900.jpg",
     [
@@ -34,7 +37,7 @@ export class RecipeService {
   constructor(private slService: ShoppingListService){}
 
   getRecipes(){
-    return this.recipes.slice();
+    return this.recipes;
   }
 
   getRecipe(id: number){
@@ -42,8 +45,23 @@ export class RecipeService {
   }
 
   goToShopping(ingredients: Ingredient[]){
-      //this.cpService.changePage.emit('shopping');
       this.slService.addIngredients(ingredients);
+    
+  }
+
+  addRecipe(recipe: Recipe){
+    this.recipes.push(recipe)
+    this.updateRecipes.next(this.getRecipes().slice())
+  }
+
+  updateRecipe(index: number, recipe: Recipe){
+    this.recipes[index] = recipe;
+    this.updateRecipes.next(this.getRecipes().slice())
+  }
+
+  deleteRecipe(index: number){
+    this.recipes.splice(index, 1);
+    this.updateRecipes.next(this.getRecipes().slice())
     
   }
 }

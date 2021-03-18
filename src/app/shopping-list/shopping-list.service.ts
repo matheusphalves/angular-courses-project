@@ -31,13 +31,13 @@ export class ShoppingListService {
 
   addIngredients(ingredients: Ingredient[]){
     this.ingredients.push(...ingredients)
-    //this.updateList.emit(this.getIngredients().slice());
     this.updateList.next(this.getIngredients().slice());
   }
 
   updateIngredient(index: number, newIngredient: Ingredient){
     this.ingredients[index] = newIngredient;
     this.updateList.next(this.getIngredients().slice());
+    console.log(this.getIngredients())
   }
 
   deleteIngredient(index: number){

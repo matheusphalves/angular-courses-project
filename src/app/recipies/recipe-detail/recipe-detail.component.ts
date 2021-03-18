@@ -30,6 +30,14 @@ export class RecipeDetailComponent implements OnInit {
     console.log("ola")
     this.router.navigate(['edit'], {relativeTo: this.route})
   }
+  
+  toShopList(){
+    this.recipeService.goToShopping(this.recipeDetail.ingredients)
+  }
+
+  onDelete(){
+    this.recipeService.deleteRecipe(this.id)
+  }
 
 
 

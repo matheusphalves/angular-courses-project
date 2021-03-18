@@ -19,10 +19,10 @@
         <button type= "button" class="btn btn-primary dropdown-toggle">Manage Recipe
         </button>
         <ul class="dropdown-menu" >
-            <li class="dropdown-item">
+            <li class="dropdown-item" (click) = "toShopList()">
                 <a style="cursor: pointer;">To shopping list</a></li>
             <li class="dropdown-item"><a  style="cursor: pointer;" (click) = "onEditRecipe()">Edit recipe</a></li>
-            <li class="dropdown-item"><a  style="cursor: pointer;">Delete recipe</a></li>
+            <li class="dropdown-item" (click) = "onDelete()" ><a  style="cursor: pointer;">Delete recipe</a></li>
         </ul>
     </div>
 
