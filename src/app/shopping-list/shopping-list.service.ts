@@ -9,6 +9,7 @@ export class ShoppingListService {
 
   //updateList = new EventEmitter<Ingredient[]>()
   updateList = new Subject<Ingredient[]>()
+  startedEditing = new Subject<number>()
 
   private ingredients: Ingredient[] = [];
 
@@ -24,9 +25,23 @@ export class ShoppingListService {
     return this.ingredients.slice();
   }
 
+  getIndredient(index: number){
+    return this.ingredients[index];
+  }
+
   addIngredients(ingredients: Ingredient[]){
     this.ingredients.push(...ingredients)
     //this.updateList.emit(this.getIngredients().slice());
+    this.updateList.next(this.getIngredients().slice());
+  }
+
+  updateIngredient(index: number, newIngredient: Ingredient){
+    this.ingredients[index] = newIngredient;
+    this.updateList.next(this.getIngredients().slice());
+  }
+
+  deleteIngredient(index: number){
+    this.ingredients.splice(index, 1);
     this.updateList.next(this.getIngredients().slice());
   }
 
