@@ -12,12 +12,12 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   ingredients: Ingredient[] = [];
   constructor(private shoppingListService: ShoppingListService) { }
-  private igChangeSub: Subscription
+  private subscription: Subscription
   ngOnInit(): void {
     
     this.ingredients = this.shoppingListService.getIngredients()
     //lista de ingredientes é atualizada
-    this.igChangeSub = this.shoppingListService.updateList.subscribe(
+    this.subscription = this.shoppingListService.updateList.subscribe(
       (ingredients: Ingredient[]) => {
         this.ingredients = ingredients
         console.log(this.ingredients)
@@ -25,7 +25,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void{
-    this.igChangeSub.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
   /*addIngredient(event:Ingredient){
