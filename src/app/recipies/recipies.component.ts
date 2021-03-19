@@ -6,7 +6,7 @@ import { RecipeService } from './recipe.service';
   selector: 'app-recipies',
   templateUrl: './recipies.component.html',
   styleUrls: ['./recipies.component.css'],
-  providers: [RecipeService] //somente componentes relacionados com este terão a mesma instância
+  //providers: [RecipeService] //somente componentes relacionados com este terão a mesma instância
 })
 export class RecipiesComponent implements OnInit {
 
