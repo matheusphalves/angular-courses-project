@@ -14,8 +14,9 @@ export class RecipeService {
 
   updateRecipes = new Subject<Recipe[]>();
 
+  private recipes: Recipe[] = [];
 
-  private recipes: Recipe[] = [
+ /* private recipes: Recipe[] = [
     new Recipe("Miojo", "É um miojo muito saboroso!", "https://www.cookingclassy.com/wp-content/uploads/2019/09/meatballs-21-600x900.jpg",
     [
       new Ingredient('Meat', 2),
@@ -32,12 +33,17 @@ export class RecipeService {
       new Ingredient('Lemon', 30)
     ]
     )
-  ];
+  ];*/
 
   constructor(private slService: ShoppingListService){}
 
   getRecipes(){
     return this.recipes;
+  }
+
+  setRecipes(recipes: Recipe[]){
+    this.recipes = recipes;
+    this.updateRecipes.next(this.getRecipes().slice());
   }
 
   getRecipe(id: number){
@@ -46,7 +52,7 @@ export class RecipeService {
 
   goToShopping(ingredients: Ingredient[]){
       this.slService.addIngredients(ingredients);
-    
+
   }
 
   addRecipe(recipe: Recipe){
@@ -62,6 +68,6 @@ export class RecipeService {
   deleteRecipe(index: number){
     this.recipes.splice(index, 1);
     this.updateRecipes.next(this.getRecipes().slice())
-    
+
   }
 }
