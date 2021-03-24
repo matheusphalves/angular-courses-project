@@ -1,5 +1,5 @@
-import { RecipeService } from './../recipe.service';
-import { Recipe } from './../recipe.module';
+import { RecipeService } from '../recipe.service';
+import { Recipe } from '../recipe.module';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
@@ -30,7 +30,7 @@ export class RecipeDetailComponent implements OnInit {
     console.log("ola")
     this.router.navigate(['edit'], {relativeTo: this.route})
   }
-  
+
   toShopList(){
     this.recipeService.goToShopping(this.recipeDetail.ingredients)
   }

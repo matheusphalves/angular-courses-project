@@ -3,8 +3,8 @@ import { ShoppingListService } from './../shopping-list/shopping-list.service';
 import { Ingredient } from './ingredients';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { RecipeService } from './../recipies/recipe.service';
-import { Recipe } from '../recipies/recipe.module';
+import { RecipeService } from '../recipes/recipe.service';
+import { Recipe } from '../recipes/recipe.module';
 
 import { exhaustMap, map, take, tap } from 'rxjs/operators'
 

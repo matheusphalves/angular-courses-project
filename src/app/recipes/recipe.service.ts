@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { ShoppingListService } from './../shopping-list/shopping-list.service';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Ingredient } from 'src/app/shared/ingredients';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Recipe } from './recipe.module';

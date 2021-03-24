@@ -4,13 +4,13 @@ import { RecipeService } from './recipe.service';
 
 @Component({
   selector: 'app-recipies',
-  templateUrl: './recipies.component.html',
-  styleUrls: ['./recipies.component.css'],
+  templateUrl: './recipes.component.html',
+  styleUrls: ['./recipes.component.css'],
   //providers: [RecipeService] //somente componentes relacionados com este terão a mesma instância
 })
 export class RecipiesComponent implements OnInit {
 
-  
+
   //@Input() actualRecipe: Recipe = new Recipe("", "", "", [])
 
   constructor(private recipeService: RecipeService) { }
