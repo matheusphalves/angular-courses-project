@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand mx-3">
-    <div class= "container-fluid">
+<nav class="navbar navbar-expand bg-gradient-dark text-white">
+    <div class= "container-fluid text-light">
         <div class="navbar-header">
             <a routerLink = '/' class="navbar-brand">Recipe Book</a>
         </div>
@@ -11,16 +11,24 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
-                <li routerLinkActive = "active" class="nav-item">
+                <li routerLinkActive = "active" class="nav-item" *ngIf = "isAuthenticated">
                     <a   routerLink = '/recipes' class="nav-link" >Recipes</a></li>
+                <li routerLinkActive = "active" class="nav-item" *ngIf = "!isAuthenticated">
+                    <a  routerLink = '/auth'class="nav-link">Authenticate</a></li>
                 <li routerLinkActive = "active" class="nav-item">
                     <a  routerLink = '/shopping-list'class="nav-link">Shopping List</a></li>
+
             </ul>
 
-            <ul class="nav navbar-nav navbar-right" openDropdown>
-                <li class="dropdown" >
+            <ul class="nav navbar-nav ml-auto"  *ngIf = "isAuthenticated">
+
+              <li >
+                <a class="nav-link" style="cursor: pointer;" (click) = "OnLogout()" >Logout</a>
+              </li>
+
+                <li class="dropdown" openDropdown>
                     <a class="dropdown-toggle" role="button">Manage
-                        <span class="carret"> </span>
+                        <span class="carret"></span>
                     </a>
                         <ul class="dropdown-menu" >
                             <li class="dropdown-item" (click) = "onSaveData()" ><a>Save Data</a></li>
@@ -33,15 +41,4 @@
 
     </div>
 </nav>
-
-
-<!--
-        <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item dropdown">
-                <ul class="dropdown-menu">
-                    <li><a href="#">Save Data</a></li>
-                    <li><a href="#">Fetch Data</a></li>
-                </ul>
-            </li>
-        </ul>
--->
+<hr>
