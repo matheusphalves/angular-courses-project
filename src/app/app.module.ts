@@ -1,3 +1,4 @@
+import { AuthModule } from './auth/auth/auth.module';
 import { CoreModule } from './core.module';
 
 import { NgModule } from '@angular/core';
@@ -17,18 +18,16 @@ import { AuthComponent } from './auth/auth/auth.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    AuthComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
 
     RecipesModule,
     ShoppingListModule,
-    AppRoutingModule,
+    AuthModule,
     SharedModule,
     CoreModule
   ],

@@ -4,8 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 const routes: Routes =   [
-  {path: '', redirectTo: '/recipes', pathMatch: 'full'},
-  {path: 'auth', component: AuthComponent}
+  {path: '', redirectTo: '/recipes', pathMatch: 'full'}
 ]
 
 @NgModule({
