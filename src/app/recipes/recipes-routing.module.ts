@@ -7,9 +7,10 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit/recipe-edit.component';
 import { RecipesResolverService } from './recipes-resolver.service';
 import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
-
+//deve começar vazio, visto q estamos usando lazy loading
+//pra carregar o módulo quando a rota em app-routing for acionada
 const routes  = [
-  {path: 'recipes', component: RecipiesComponent,
+  {path: '', component: RecipiesComponent,
   canActivate:[AuthGuard] , children: [
     {path: '', component: RecipeStartComponent},
     {path: 'new', component: RecipeEditComponent},

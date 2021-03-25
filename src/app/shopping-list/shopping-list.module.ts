@@ -1,3 +1,4 @@
+import { LoggingService } from './../logging.service';
 
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
@@ -16,14 +17,14 @@ import { ShoppingListComponent } from "./shopping-list.component";
     ShoppingEditComponent
   ],
   imports: [
-    BrowserModule,
     FormsModule,
     RouterModule.forChild([
-      {path: 'shopping-list', component: ShoppingListComponent}
+      {path: '', component: ShoppingListComponent}
     ]),
-    SharedModule
+    SharedModule,
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  //providers: [LoggingService]
 })
 export class ShoppingListModule{}
 

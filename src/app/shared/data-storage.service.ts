@@ -20,12 +20,12 @@ export class DataStorageService {
 
 
     saveData(){
-      //this.storeShopping().subscribe();
+      this.storeShopping().subscribe();
       this.storeRecipes().subscribe();
     }
 
     fetchData(){
-      //this.fetchShopping().subscribe(response =>{console.log(response);});
+      this.fetchShopping().subscribe(response =>{console.log(response);});
       this.fetchRecipes().subscribe();
     }
 
