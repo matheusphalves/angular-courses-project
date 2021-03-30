@@ -1,7 +1,7 @@
 import { LoggingService } from './logging.service';
 import { AuthService } from './auth/auth.service';
-import { Component, Input, OnInit } from '@angular/core';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,18 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private authService:AuthService,
-    private log: LoggingService){}
+  constructor(
+    private authService:AuthService,
+    private log: LoggingService,
+    @Inject(PLATFORM_ID) private platformId){}
 
   ngOnInit(): void {
-    this.authService.autoLogin();
+    //Angular Universal
+    //verifica se código está sendo executado no browser
+    if(isPlatformBrowser(this.platformId)){
+      this.authService.autoLogin();
+    }
+
     this.log.printLog("Hello frm AppComponent ngOnInit");
   }
 
